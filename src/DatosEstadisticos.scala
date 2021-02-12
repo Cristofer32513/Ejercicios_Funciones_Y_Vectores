@@ -1,4 +1,5 @@
 import scala.io.StdIn.readLine
+import scala.util.Sorting.quickSort
 
 object DatosEstadisticos {
 
@@ -11,16 +12,29 @@ object DatosEstadisticos {
   }
 
   def ImprimirVector(vector:Array[Int]) : Unit = {
-    vector.foreach(println)
+    for (i <- vector.indices) {
+      print(vector(i) + ", ")
+    }
+  }
+
+  def OrdenarVector(vector:Array[Int]) : Array[Int] = {
+    quickSort(vector)
+    vector
   }
 
 
   def main(args: Array[String]): Unit = {
-    println("Ingrese la cantidad de datos a almacenar en el vector...")
-    var vectorDatos = new Array[Int](readLine().toInt)
+    //println("Ingrese la cantidad de datos a almacenar en el vector...")
+    //val vectorDatos = new Array[Int](readLine().toInt)
+    //LlenarVector(vectorDatos)
 
-    vectorDatos = LlenarVector(vectorDatos)
+    val vectorDatos = Array(10, 8, 9, 7, 4, 6, 3, 5, 1, 2)
+    println("\n\n\n===== VECTOR ORIGINAL =====")
     ImprimirVector(vectorDatos)
+    println("\n\n\n===== VECTOR ORDENADO =====")
+    OrdenarVector(vectorDatos)
+    ImprimirVector(vectorDatos)
+    println("\n\n\n")
 
 
 
