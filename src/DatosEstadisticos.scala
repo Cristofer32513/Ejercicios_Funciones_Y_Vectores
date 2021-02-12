@@ -60,6 +60,19 @@ object DatosEstadisticos {
     else 0
   }
 
+  def DesviacionMedia(vector:Array[Int]) : Double = {
+    var sumatoria = 0.0
+    val media = Mediana(vector)
+      for (i <- vector.indices) {
+        if ((vector(i) - media) < 0) sumatoria += ((vector(i) - media) * -1)
+        else sumatoria += (vector(i) - media)
+      }
+    sumatoria / vector.length
+  }
+
+
+
+
 
   def main(args: Array[String]): Unit = {
     //println("Ingrese la cantidad de datos a almacenar en el vector...")
@@ -81,6 +94,7 @@ object DatosEstadisticos {
     println("\n\n===== DESVIACION RESPECTO A LA MEDIA DE LOS DATOS =====")
     println(DesviacionRespectoMedia(vectorDatos))
     println("\n\n===== DESVIACION MEDIA DE LOS DATOS =====")
+    println(DesviacionMedia(vectorDatos))
     println("\n\n===== VARIANZA DE LOS DATOS =====")
     println("\n\n===== DESVICION ESTANDAR DE LOS DATOS =====")
 
