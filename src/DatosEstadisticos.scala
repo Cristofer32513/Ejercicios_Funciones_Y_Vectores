@@ -70,6 +70,15 @@ object DatosEstadisticos {
     sumatoria / vector.length
   }
 
+  def Varianza(vector:Array[Int]) : Double = {
+    var sumatoria = 0.0
+    val media = Mediana(vector)
+    for (i <- vector.indices) {
+      sumatoria += math.pow(vector(i) - media, 2)
+    }
+    sumatoria / vector.length
+  }
+
 
 
 
@@ -96,6 +105,7 @@ object DatosEstadisticos {
     println("\n\n===== DESVIACION MEDIA DE LOS DATOS =====")
     println(DesviacionMedia(vectorDatos))
     println("\n\n===== VARIANZA DE LOS DATOS =====")
+    println(Varianza(vectorDatos))
     println("\n\n===== DESVICION ESTANDAR DE LOS DATOS =====")
 
 
