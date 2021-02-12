@@ -79,9 +79,10 @@ object DatosEstadisticos {
     sumatoria / vector.length
   }
 
-
-
-
+  def DesviacionEstandar(vector:Array[Int]) : Double = {
+    val varianza = Varianza(vector)
+    math.sqrt(varianza)
+  }
 
   def main(args: Array[String]): Unit = {
     //println("Ingrese la cantidad de datos a almacenar en el vector...")
@@ -91,25 +92,30 @@ object DatosEstadisticos {
     val vectorDatos = Array(10, 8, 9, 7, 4, 4, 6, 3, 5, 1, 2)
     println("\n\n\n===== VECTOR ORIGINAL =====")
     ImprimirVector(vectorDatos)
+
     println("\n\n\n===== VECTOR ORDENADO =====")
     OrdenarVector(vectorDatos)
     ImprimirVector(vectorDatos)
+
     println("\n\n\n===== MEDIA DE LOS DATOS =====")
     println(Media(vectorDatos))
+
     println("\n\n===== MODA DE LOS DATOS =====")
     println(Moda(vectorDatos))
+
     println("\n\n===== MEDIANA DE LOS DATOS =====")
     println(Mediana(vectorDatos))
+
     println("\n\n===== DESVIACION RESPECTO A LA MEDIA DE LOS DATOS =====")
     println(DesviacionRespectoMedia(vectorDatos))
+
     println("\n\n===== DESVIACION MEDIA DE LOS DATOS =====")
     println(DesviacionMedia(vectorDatos))
+
     println("\n\n===== VARIANZA DE LOS DATOS =====")
     println(Varianza(vectorDatos))
+
     println("\n\n===== DESVICION ESTANDAR DE LOS DATOS =====")
-
-
-
-
+    println(DesviacionEstandar(vectorDatos))
   }
 }
