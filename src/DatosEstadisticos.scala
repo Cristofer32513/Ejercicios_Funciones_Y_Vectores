@@ -39,8 +39,8 @@ object DatosEstadisticos {
       }
     }
     if(contAnterior == 1) {
-      print("-------- NO HAY VALORES REPETIDOS EN EL VECTOR --------")
-      0
+      print("-------- NO EXISTE MODA EN EL VECTOR --------")
+      -999
     } else masAlto
   }
 
@@ -50,6 +50,15 @@ object DatosEstadisticos {
     else vector(mitad)
   }
 
+  def DesviacionRespectoMedia(vector:Array[Int]) : Double = {
+    val moda = Moda(vector)
+    if (moda != -999) {
+      val desviacion = moda.toDouble - Media(vector)
+      if(desviacion < 0.0) desviacion * -1
+      else desviacion
+    }
+    else 0
+  }
 
 
   def main(args: Array[String]): Unit = {
@@ -57,7 +66,7 @@ object DatosEstadisticos {
     //val vectorDatos = new Array[Int](readLine().toInt)
     //LlenarVector(vectorDatos)
 
-    val vectorDatos = Array(10, 8, 9, 7, 4, 6, 3, 5, 1, 2)
+    val vectorDatos = Array(10, 8, 9, 7, 4, 4, 6, 3, 5, 1, 2)
     println("\n\n\n===== VECTOR ORIGINAL =====")
     ImprimirVector(vectorDatos)
     println("\n\n\n===== VECTOR ORDENADO =====")
@@ -70,6 +79,7 @@ object DatosEstadisticos {
     println("\n\n===== MEDIANA DE LOS DATOS =====")
     println(Mediana(vectorDatos))
     println("\n\n===== DESVIACION RESPECTO A LA MEDIA DE LOS DATOS =====")
+    println(DesviacionRespectoMedia(vectorDatos))
     println("\n\n===== DESVIACION MEDIA DE LOS DATOS =====")
     println("\n\n===== VARIANZA DE LOS DATOS =====")
     println("\n\n===== DESVICION ESTANDAR DE LOS DATOS =====")
