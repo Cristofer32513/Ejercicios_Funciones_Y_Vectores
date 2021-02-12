@@ -26,6 +26,25 @@ object DatosEstadisticos {
     sumatoria.toDouble / vector.length.toDouble
   }
 
+  def Moda(vector:Array[Int]) : Int = {
+    var masAlto = 0
+    var contActual = 0
+    var contAnterior = 0
+    for (i <- vector.indices) {
+      contActual = 0
+      for (j <- vector.indices) if(vector(j) == vector(i)) contActual += 1
+      if (contActual > contAnterior) {
+        contAnterior = contActual
+        masAlto = vector(i)
+      }
+    }
+    if(contAnterior == 1) {
+      println("-------- NO HAY VALORES REPETIDOS EN EL VECTOR --------")
+      0
+    } else masAlto
+  }
+
+
 
 
   def main(args: Array[String]): Unit = {
@@ -33,7 +52,7 @@ object DatosEstadisticos {
     //val vectorDatos = new Array[Int](readLine().toInt)
     //LlenarVector(vectorDatos)
 
-    val vectorDatos = Array(10, 8, 9, 7, 4, 6, 3, 5, 1, 2)
+    val vectorDatos = Array(10, 8, 9, 7, 4, 4, 3, 5, 1, 2)
     println("\n\n\n===== VECTOR ORIGINAL =====")
     ImprimirVector(vectorDatos)
     println("\n\n\n===== VECTOR ORDENADO =====")
@@ -42,6 +61,7 @@ object DatosEstadisticos {
     println("\n\n\n===== MEDIA DE LOS DATOS =====")
     println(Media(vectorDatos))
     println("\n\n\n===== MODA DE LOS DATOS =====")
+    println(Moda(vectorDatos))
     println("\n\n\n===== MEDIANA DE LOS DATOS =====")
     println("\n\n\n===== DESVIACION RESPECTO A LA MEDIA DE LOS DATOS =====")
     println("\n\n\n===== DESVIACION MEDIA DE LOS DATOS =====")
