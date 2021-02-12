@@ -73,9 +73,7 @@ object DatosEstadisticos {
   def Varianza(vector:Array[Int]) : Double = {
     var sumatoria = 0.0
     val media = Mediana(vector)
-    for (i <- vector.indices) {
-      sumatoria += math.pow(vector(i) - media, 2)
-    }
+    for (i <- vector.indices) sumatoria += math.pow(vector(i) - media, 2)
     sumatoria / vector.length
   }
 
@@ -85,12 +83,12 @@ object DatosEstadisticos {
   }
 
   def main(args: Array[String]): Unit = {
-    //println("Ingrese la cantidad de datos a almacenar en el vector...")
-    //val vectorDatos = new Array[Int](readLine().toInt)
-    //LlenarVector(vectorDatos)
+    println("Ingrese la cantidad de datos a almacenar en el vector...")
+    val vectorDatos = new Array[Int](readLine().toInt)
+    LlenarVector(vectorDatos)
 
-    val vectorDatos = Array(10, 8, 9, 7, 4, 4, 6, 3, 5, 1, 2)
-    println("\n\n\n===== VECTOR ORIGINAL =====")
+    //val vectorDatos = Array(10, 8, 9, 7, 4, 4, 6, 3, 5, 1, 2)
+    println("\n\n===== VECTOR ORIGINAL =====")
     ImprimirVector(vectorDatos)
 
     println("\n\n\n===== VECTOR ORDENADO =====")
